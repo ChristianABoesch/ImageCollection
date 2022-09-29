@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      Strange Rocks
+    </title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script>
+      var currentSlide = 0;
+      var goPrev = function(){
+        $("img").fadeOut();
+        currentSlide = (currentSlide - 1) % 5;
+        if(currentSlide < 0){
+          currentSlide = 5 + currentSlide;
+        }
+        $("img:nth-of-type(" + (currentSlide+1) + ")").stop().fadeIn(1000);
+        return;
+      }
+
+      var goNext = function(){
+        $("img").fadeOut();
+        currentSlide = (currentSlide + 1) % 5;
+        $("img:nth-of-type(" + (currentSlide+1) + ")").stop().fadeIn(1000);
+        return;
+      }
+     </script>
+     <style>
+      img{
+        position: absolute;
+      }
+      #prev{
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+      }
+      #next{
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+      }
+     </style>
+  </head>
+
+  <h1>Strange Rocks</h1>
+  <p>These are strange rocks.</p>
+
+  <body onload='$("img").fadeOut(0);$("img:nth-of-type(1)").fadeIn()'>
+  <img src='file:///Users/christianboesch/Downloads/Images%20Webpages/Webpage%202/images2/a-large-multi-colored-rock-in-an-empty-science-lab-photorealistic-digital-art-770717574.png'>
+  <img src='file:///Users/christianboesch/Downloads/Images%20Webpages/Webpage%202/images2/a-photograph-of-an-unusually-shaped-multicolored-rock-photorealistic-digital-art-392887435.png'>
+  <img src='file:///Users/christianboesch/Downloads/Images%20Webpages/Webpage%202/images2/a-photograph-of-an-unusually-shaped-rock-from-another-dimension-photorealistic-digital-art-637445565.png'>
+  <img src='file:///Users/christianboesch/Downloads/Images%20Webpages/Webpage%202/images2/a-portal-to-another-dimension-with-a-strange-looking-rock-inside-photorealistic-digital-art-704027238.png'>
+  <img src='file:///Users/christianboesch/Downloads/Images%20Webpages/Webpage%202/images2/an-unusual-looking-multicolored-rock-photorealistic-digital-art-19099941.png'>
+  <button onclick='goPrev()' id='prev'> Prev </button>
+  <button onclick='goNext()' id='next'> Next </button>
+
+  </body>
+</html>
